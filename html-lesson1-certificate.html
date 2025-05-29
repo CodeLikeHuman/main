@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HTML Lesson 1 - Εισαγωγή</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: #f0f0f5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      padding: 2rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(8px);
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+      color: #fff;
+    }
+
+    .logo span {
+      color: #ffd166;
+    }
+
+    nav {
+      display: flex;
+    }
+
+    nav a {
+      color: #f0f0f5;
+      margin-left: 2rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ffd166;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    .menu-toggle div {
+      height: 4px;
+      width: 25px;
+      background: #ffd166;
+      margin: 4px 0;
+      border-radius: 4px;
+      transition: 0.3s ease;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        gap: 1rem;
+        background-color: rgba(0, 0, 0, 0.85);
+        position: absolute;
+        top: 70px;
+        right: 0px;
+        padding: 1rem 2rem;
+        border-radius: 12px;
+      }
+
+      nav.active {
+        display: flex;
+        z-index: 1000;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+    }
+
+    main {
+      padding: 2rem;
+      max-width: 1500px;
+      margin: 0 auto;
+    }
+
+    h1, h2 {
+      color: #ffd166;
+    }
+
+    .section {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      border-radius: 12px;
+    }
+
+    textarea, iframe {
+      width: 100%;
+      border: none;
+      border-radius: 8px;
+      margin-top: 1rem;
+    }
+
+    textarea {
+      min-height: 150px;
+      font-family: monospace;
+      padding: 1rem;
+    }
+
+    iframe {
+      height: 200px;
+      background: white;
+    }
+
+    .btn {
+      margin-top: 1rem;
+      padding: 0.6rem 1.5rem;
+      background: #ffd166;
+      color: #333;
+      border: none;
+      font-weight: bold;
+      border-radius: 30px;
+      cursor: pointer;
+    }
+
+    .quiz input[type="radio"] {
+      margin-right: 10px;
+    }
+
+    .progress {
+      text-align: right;
+      font-weight: bold;
+      color: #90ee90;
+      margin-top: 1rem;
+    }
+
+    .completed {
+      background: #32cd32;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      display: inline-block;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: rgba(0, 0, 0, 0.2);
+      color: #ddd;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo"><span>&#123;</span> Code Like Human 🤖 <span>&#125;</span></div>
+    <div class="menu-toggle" id="menu-toggle">
+      <div></div><div></div><div></div>
+    </div>
+    <nav id="nav">
+      <a href="index.html">Home</a>
+      <a href="learning-path.html">Learning Path</a>
+      <a href="html-course.html">HTML</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Lesson 1: Introduction to Web</h1>
+
+    <div class="section">
+      <h2>📘 Theory</h2>
+      <p>Το HTML είναι η γλώσσα που χρησιμοποιούμε για να δημιουργήσουμε ιστοσελίδες. Περιλαμβάνει tags (ετικέτες) που καθορίζουν τη δομή του περιεχομένου.</p>
+      <pre><code>&lt;html&gt;
+  &lt;head&gt;&lt;title&gt;My Page&lt;/title&gt;&lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hello World&lt;/h1&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </div>
+
+    <div class="section">
+      <h2>🧪 Try it!</h2>
+      <textarea id="editor">
+<html>
+  <body>
+    <h1>Hello world</h1>
+    <p>Write your code here!</p>
+  </body>
+</html>
+      </textarea>
+      <button class="btn" onclick="runCode()">Click for result</button>
+      <iframe id="output"></iframe>
+    </div>
+
+    <div class="section">
+      <h2>📝 Quiz</h2>
+      <form class="quiz" onsubmit="return checkAnswer(event)">
+        <p>Ποιο tag χρησιμοποιείται για επικεφαλίδα επιπέδου 1;</p>
+        <label><input type="radio" name="q1" value="a" /> &lt;p&gt;</label><br />
+        <label><input type="radio" name="q1" value="b" /> &lt;h1&gt;</label><br />
+        <label><input type="radio" name="q1" value="c" /> &lt;div&gt;</label><br />
+        <button class="btn" type="submit">Check Answer</button>
+        <p id="quiz-result"></p>
+      </form>
+    </div>
+<!-- AI Βοηθός (Mock FAQ style) -->
+<div class="section">
+  <h2>🤖 Βοήθεια από τον AI Βοηθό</h2>
+  <p><strong>Ερώτηση:</strong> Τι κάνει το &lt;h1&gt; tag;</p>
+  <p><strong>Απάντηση:</strong> Δημιουργεί μια επικεφαλίδα επιπέδου 1. Είναι σημαντικό για τη δομή και SEO μιας σελίδας.</p>
+
+  <p><strong>Ερώτηση:</strong> Μπορώ να έχω πολλά &lt;h1&gt; σε μια σελίδα;</p>
+  <p><strong>Απάντηση:</strong> Τεχνικά ναι, αλλά συνιστάται να έχεις μόνο ένα κύριο &lt;h1&gt; για καλύτερη προσβασιμότητα.</p>
+</div>
+<!-- Σύστημα Προόδου -->
+<div class="section progress">
+  <label>
+    <input type="checkbox" id="mark-complete" /> Mark it as done
+  </label>
+  <p id="progress-status"></p>
+</div>
+<!-- Πλοήγηση Μαθημάτων -->
+<div class="section" style="text-align: center;">
+  <!-- <a href="html-lesson0.html" class="btn">⬅ Previous</a> -->
+  <!-- <a href="html-lesson2.html" class="btn">Next Lesson ➡</a> -->
+   <div style="text-align: center; margin: 4rem 0;">
+  <button onclick="generateCertificate()" style="
+    background-color: #ffd166;
+    color: #333;
+    font-weight: bold;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    cursor: pointer;
+  ">
+    🎓 Λήψη Πιστοποιητικού Παρακολούθησης
+  </button>
+</div>
+</div>
+
+
+
+
+
+<!-- Υποβολή Ερώτησης -->
+<!-- <div class="section">
+  <h2>💬 Έχεις Απορία;</h2>
+  <form onsubmit="submitQuestion(event)">
+    <textarea id="user-question" placeholder="Γράψε την ερώτησή σου εδώ..." required></textarea>
+    <button class="btn" type="submit">Υποβολή</button>
+    <p id="question-feedback"></p>
+  </form>
+</div> -->
+
+    <!-- <div class="section progress">
+      <span class="completed">✔ Done</span>
+    </div> -->
+  </main>
+
+  <footer>
+    &copy; 2025 Code Like Human. All rights reserved.
+  </footer>
+
+<script>
+  // Mobile Nav
+  document.getElementById('menu-toggle').addEventListener('click', () => {
+    document.getElementById('nav').classList.toggle('active');
+  });
+
+  // Run HTML Editor
+  function runCode() {
+    const code = document.getElementById("editor").value;
+    const output = document.getElementById("output");
+    output.srcdoc = code;
+  }
+
+  // Quiz Logic
+  function checkAnswer(event) {
+    event.preventDefault();
+    const answer = document.querySelector('input[name="q1"]:checked');
+    const result = document.getElementById("quiz-result");
+    if (answer?.value === "b") {
+      result.textContent = "Σωστά! ✅";
+      result.style.color = "lightgreen";
+    } else {
+      result.textContent = "Λάθος. Προσπάθησε ξανά. ❌";
+      result.style.color = "pink";
+    }
+  }
+
+  // Progress tracking
+  const checkbox = document.getElementById("mark-complete");
+  const status = document.getElementById("progress-status");
+  const lessonKey = "lesson-html-1-completed";
+
+  checkbox.addEventListener("change", () => {
+    if (checkbox.checked) {
+      localStorage.setItem(lessonKey, "true");
+      status.innerHTML = '<span class="completed">✔ Ολοκληρώθηκε</span>';
+    } else {
+      localStorage.removeItem(lessonKey);
+      status.textContent = "";
+    }
+  });
+
+  if (localStorage.getItem(lessonKey) === "true") {
+    checkbox.checked = true;
+    status.innerHTML = '<span class="completed">✔ Done</span>';
+  }
+
+  // Submit Question
+  // function submitQuestion(e) {
+  //   e.preventDefault();
+  //   const question = document.getElementById("user-question").value;
+  //   const feedback = document.getElementById("question-feedback");
+  //   feedback.textContent = "Η ερώτησή σου καταχωρήθηκε ✅ Θα απαντηθεί σύντομα.";
+  //   document.getElementById("user-question").value = "";
+  // }
+</script>
+<!-- jsPDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+  async function generateCertificate() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF({
+      orientation: 'landscape',
+      unit: 'px',
+      format: 'a4'
+    });
+
+    const name = prompt("Πληκτρολόγησε το όνομά σου για το πιστοποιητικό:");
+    if (!name || name.trim() === "") {
+      alert("Το όνομα είναι απαραίτητο για την έκδοση πιστοποιητικού.");
+      return;
+    }
+
+    const bgImageUrl = 'https://i.imgur.com/wzF8uQO.png'; // Μπορείς να βάλεις δική σου
+    const img = new Image();
+    img.crossOrigin = "anonymous";
+    img.src = bgImageUrl;
+
+    img.onload = function () {
+      // Background full A4 landscape
+      doc.addImage(img, 'PNG', 0, 0, doc.internal.pageSize.getWidth(), doc.internal.pageSize.getHeight());
+
+      doc.setTextColor('#333');
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(30);
+      doc.text("Πιστοποιητικό Παρακολούθησης", doc.internal.pageSize.getWidth() / 2, 120, { align: "center" });
+
+      doc.setFontSize(18);
+      doc.setFont("helvetica", "normal");
+      doc.text(`Απονέμεται στον/στην:`, doc.internal.pageSize.getWidth() / 2, 180, { align: "center" });
+
+      doc.setFontSize(22);
+      doc.setFont("helvetica", "bold");
+      doc.text(name, doc.internal.pageSize.getWidth() / 2, 210, { align: "center" });
+
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(16);
+      doc.text(`Για την ολοκλήρωση της σειράς μαθημάτων "Εισαγωγή στην HTML"`, doc.internal.pageSize.getWidth() / 2, 250, { align: "center" });
+
+      doc.text(`Code Like Human - ${new Date().toLocaleDateString("el-GR")}`, doc.internal.pageSize.getWidth() / 2, 300, { align: "center" });
+
+      doc.setFontSize(12);
+      doc.text("Υπογραφή Εκπαιδευτή", doc.internal.pageSize.getWidth() - 150, doc.internal.pageSize.getHeight() - 80);
+      doc.text("_________________________", doc.internal.pageSize.getWidth() - 180, doc.internal.pageSize.getHeight() - 90);
+
+      doc.save(`Πιστοποιητικό_${name}.pdf`);
+    };
+  }
+</script>
+</body>
+</html>

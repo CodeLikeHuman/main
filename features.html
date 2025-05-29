@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Features | Code Like Human</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: #f0f0f5;
+      min-height: 100vh;
+    }
+    header {
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .logo {
+      font-weight: 700;
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+      color: #fff;
+    }
+    nav {
+      display: flex;
+      gap: 2rem;
+    }
+    nav a {
+      color: #f0f0f5;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #ffd166;
+    }
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .menu-toggle div {
+      height: 4px;
+      width: 25px;
+      background: #ffd166;
+      margin: 4px 0;
+      border-radius: 4px;
+    }
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        gap: 1rem;
+        position: absolute;
+        top: 70px;
+        right: 1rem;
+        background-color: rgba(0, 0, 0, 0.85);
+        padding: 1rem 2rem;
+        border-radius: 12px;
+      }
+      nav.active {
+        display: flex;
+      }
+      .menu-toggle {
+        display: flex;
+      }
+    }
+    .features-section {
+      max-width: 1000px;
+      margin: 4rem auto;
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .feature-box {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 2rem;
+      border-radius: 16px;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+    .feature-box h3 {
+      color: #ffd166;
+      margin-bottom: 1rem;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: rgba(0,0,0,0.2);
+      color: #ddd;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <span style="color:#ffd166;">&#123;</span> Code Like Human 🤖 <span style="color:#ffd166;">&#125;</span>
+    </div>
+    <div class="menu-toggle" id="menu-toggle">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <nav id="nav">
+      <a href="index.html">Home</a>
+      <a href="features.html">Features</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main class="features-section">
+    <div class="feature-box">
+      <h3>🎓 Interactive Lessons</h3>
+      <p>Hands-on activities that let students code and see results in real-time.</p>
+    </div>
+    <div class="feature-box">
+      <h3>🧠 Learning Paths</h3>
+      <p>Structured paths for front-end, back-end, and full-stack development.</p>
+    </div>
+    <div class="feature-box">
+      <h3>📜 Certificates</h3>
+      <p>Earn printable certificates after completing each learning path.</p>
+    </div>
+    <div class="feature-box">
+      <h3>🎮 Gamified Challenges</h3>
+      <p>Fun mini-games that teach coding logic and problem-solving.</p>
+    </div>
+    <div class="feature-box">
+      <h3>📂 GitHub Integration</h3>
+      <p>Publish and share your projects directly from the course platform.</p>
+    </div>
+    <div class="feature-box">
+      <h3>🌍 Multilingual Support</h3>
+      <p>Courses available in English and Greek, with more to come.</p>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Code Like Human. All rights reserved.
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById("menu-toggle");
+    const nav = document.getElementById("nav");
+    menuToggle.addEventListener("click", () => {
+      nav.classList.toggle("active");
+    });
+  </script>
+</body>
+</html>

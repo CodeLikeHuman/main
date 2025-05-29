@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Code Frog Game</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      background-color: #e0f7fa;
+    }
+    canvas {
+      background-color: #c8e6c9;
+      display: block;
+      margin: 0 auto 1rem;
+    }
+    textarea {
+      width: 80%;
+      height: 100px;
+      margin: 1rem auto;
+      display: block;
+      font-family: monospace;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Help the Frog Avoid the Rock!</h1>
+  <canvas id="gameCanvas" width="500" height="200"></canvas>
+  <textarea id="codeInput">if (rockX < 100) {
+  frogY = 120;
+}</textarea>
+  <button onclick="runCode()">Run Code</button>
+  <script>
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+    let frogY = 150;
+    let rockX = 500;
+    let animationFrame;
+
+    function drawGame() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Draw frog
+      ctx.fillStyle = 'green';
+      ctx.fillRect(50, frogY, 30, 30);
+
+      // Draw rock
+      ctx.fillStyle = 'gray';
+      ctx.fillRect(rockX, 150, 30, 30);
+
+      rockX -= 2;
+      if (rockX < -30) rockX = 500;
+
+      if (rockX < 80 && frogY >= 150) {
+        cancelAnimationFrame(animationFrame);
+        alert('Oops! The frog hit the rock. Try again!');
+        return;
+      }
+
+      animationFrame = requestAnimationFrame(drawGame);
+    }
+
+    function runCode() {
+      try {
+        eval(document.getElementById('codeInput').value);
+      } catch (e) {
+        alert('There was an error in your code!');
+        return;
+      }
+      rockX = 500;
+      frogY = 150;
+      cancelAnimationFrame(animationFrame);
+      drawGame();
+    }
+  </script>
+</body>
+</html>
