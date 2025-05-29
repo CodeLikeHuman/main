@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HTML Course - Code Like Human</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: #f0f0f5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      padding: 2rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(8px);
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+      color: #fff;
+    }
+
+    .logo span {
+      color: #ffd166;
+    }
+
+    nav {
+      display: flex;
+    }
+
+    nav a {
+      color: #f0f0f5;
+      margin-left: 2rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ffd166;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    .menu-toggle div {
+      height: 4px;
+      width: 25px;
+      background: #ffd166;
+      margin: 4px 0;
+      border-radius: 4px;
+      transition: 0.3s ease;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        gap: 1rem;
+        background-color: rgba(0, 0, 0, 0.85);
+        position: absolute;
+        top: 70px;
+        right: 0px;
+        padding: 1rem 2rem;
+        border-radius: 12px;
+      }
+
+      nav.active {
+        display: flex;
+        z-index: 1000;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+    }
+
+    main {
+      padding: 3rem 1.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.8rem;
+      margin-bottom: 2rem;
+    }
+
+    .module {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-left: 6px solid #ffd166;
+      border-radius: 12px;
+      transition: background 0.3s;
+    }
+
+    .module:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .module h2 {
+      margin-top: 0;
+      color: #ffd166;
+    }
+
+    .btn-start {
+      display: inline-block;
+      margin-top: 1rem;
+      background: #ffd166;
+      color: #333;
+      padding: 0.6rem 1.5rem;
+      font-weight: 700;
+      border-radius: 30px;
+      text-decoration: none;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: background 0.3s ease;
+    }
+
+    .btn-start:hover {
+      background: #e6b645;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: rgba(0, 0, 0, 0.2);
+      color: #ddd;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <span>&#123;</span> Code Like Human 🤖 <span>&#125;</span>
+    </div>
+    <div class="menu-toggle" id="menu-toggle">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <nav id="nav">
+      <a href="index.html">Home</a>
+      <a href="learningpath.html">Learning Path</a>
+      <a href="html-course.html">HTML</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>HTML Course Modules</h1>
+
+    <div class="module">
+      <h2>1. Εισαγωγή στο HTML</h2>
+      <p>Τι είναι το HTML και πώς λειτουργεί; Η βασική δομή ενός HTML εγγράφου.</p>
+      <a href="#" class="btn-start">Ξεκίνα το μάθημα</a>
+    </div>
+
+    <div class="module">
+      <h2>2. Βασικά Tags</h2>
+      <p>Πώς να χρησιμοποιείς tags όπως &lt;h1&gt;, &lt;p&gt;, &lt;a&gt;, &lt;img&gt;.</p>
+      <a href="#" class="btn-start">Ξεκίνα το μάθημα</a>
+    </div>
+
+    <div class="module">
+      <h2>3. Λίστες & Πίνακες</h2>
+      <p>Ταξινόμηση περιεχομένου με λίστες και εμφάνιση δεδομένων με πίνακες.</p>
+      <a href="#" class="btn-start">Ξεκίνα το μάθημα</a>
+    </div>
+
+    <div class="module">
+      <h2>4. Φόρμες</h2>
+      <p>Δημιουργία φορμών για εισαγωγή δεδομένων από τον χρήστη.</p>
+      <a href="#" class="btn-start">Ξεκίνα το μάθημα</a>
+    </div>
+
+    <div class="module">
+      <h2>5. Ενσωμάτωση Πολυμέσων</h2>
+      <p>Πώς προσθέτουμε εικόνες, ήχο, και βίντεο.</p>
+      <a href="#" class="btn-start">Ξεκίνα το μάθημα</a>
+    </div>
+
+    <div class="module">
+      <h2>6. Δομή Σελίδας με Semantics</h2>
+      <p>Χρήση των &lt;section&gt;, &lt;article&gt;, &lt;header&gt;, &lt;footer&gt;.</p>
+      <a href="#" class="btn-start">Ξεκίνα το μάθημα</a>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Code Like Human. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById('menu-toggle').addEventListener('click', function () {
+      document.getElementById('nav').classList.toggle('active');
+    });
+  </script>
+</body>
+</html>

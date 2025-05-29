@@ -43,7 +43,7 @@
     }
 
     nav a {
-      color: #f0f0f5;
+      color: white;
       text-decoration: none;
       font-weight: 600;
       transition: color 0.3s ease;
@@ -79,6 +79,10 @@
         padding: 1rem 2rem;
         border-radius: 12px;
       }
+
+      nav a:active {
+  color: #ffd166; /* Ή ό,τι άλλο θες */
+}
 
       nav.active {
         display: flex;
@@ -135,6 +139,20 @@
       color: #ddd;
       font-size: 0.9rem;
     }
+    .lesson-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.lesson-link:hover {
+  color: white; /* διατηρείται λευκό και στο hover */
+}
+
+.lesson-link:active {
+  color: #ffd166; /* αλλάζει μόνο όταν το πατήσεις */
+}
   </style>
 </head>
 <body>
@@ -158,7 +176,9 @@
   <main class="path-container">
     <div class="branch">
       <h2>Web Development Path</h2>
-      <div class="step">1. HTML</div>
+     <div class="step" style="color: white;">
+  <a href="html-lesson1.html" class="lesson-link">1. HTML</a>
+</div>
       <!-- <div class="step">2. CSS</div>
       <div class="step">3. Git</div>
       <div class="step">4. JavaScript</div> -->
