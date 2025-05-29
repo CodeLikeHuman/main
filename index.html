@@ -241,9 +241,9 @@
     <div></div>
   </div>
   <nav id="navMenu">
-    <a href="#features">Features</a>
-    <a href=learning-path.html>Courses</a>
-    <a href="#about">About</a>
+    <a href="features.html">Features</a>
+    <a href="learning-path.html">Courses</a>
+    <a href="about.html">About</a>
   </nav>
 
 </header>
@@ -251,8 +251,8 @@
 <main>
   <section class="hero-text">
     <h1>Learn to <span>Code Like a Human</span></h1>
-    <p>Friendly, interactive coding lessons designed to make programming easy and fun for absolute beginners. No jargon, no fear, just real learning.</p>
-    <button class="btn-primary" onclick="alert('Welcome to Code Like Human! Start learning now.')">Get Started</button>
+    <p>Friendly, interactive coding lessons designed to make programming easy and fun for absolute beginners. No jargon, no fear, just real learning for free.</p>
+    <button class="btn-primary"><a href="https://codelikehuman.github.io/main/learning-path.html"> Start Here</a></button>
   </section>
   <section class="hero-graphic" aria-label="Coding illustration">
     <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="code-lines" role="img" aria-hidden="true" >
@@ -274,6 +274,10 @@
   function toggleMenu() {
     const nav = document.getElementById("navMenu");
     nav.classList.toggle("active");
+
+    function takemeto(){
+      window.location.href="https://codelikehuman.github.io/main/learning-path.html";
+    }
   }
 </script>
 </body>
